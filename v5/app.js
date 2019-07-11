@@ -11,6 +11,7 @@ var express     = require("express"),
 mongoose.connect("mongodb://localhost/yelp_camp_v3"); //create yelpcamp db inside mongodb
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 seedDB();
 
        
