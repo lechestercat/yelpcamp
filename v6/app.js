@@ -8,7 +8,9 @@ var express     = require("express"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
     seedDB      = require("./seeds");
-    //Comment     = require("./models/comments")
+    Comment     = require("./models/comment")
+
+
     
 
 mongoose.connect("mongodb://localhost/yelp_camp_v"); //create yelpcamp db inside mongodb
