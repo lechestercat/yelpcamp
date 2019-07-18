@@ -77,7 +77,7 @@ router.put("/:id", function(req,res){
 })
 
 // DESTROY ROUTE
-router.delete("/:id", function(req,res){
+router.delete("/:id", checkCampgroundOwnership, function(req,res){
     Campground.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect("/campgrounds");
@@ -102,7 +102,7 @@ function checkCampgroundOwnership(req, res, next){
                 res.redirect("back");
             }else{
                 // does user own the campground
-                if(campground.author.id.equals(req.user._id)){
+                if(foundCampground.author.id.equals(req.user._id)){
                     next();
                 }else{
                     res.redirect("back");

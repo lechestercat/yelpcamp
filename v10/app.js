@@ -43,7 +43,7 @@ app.use(function(req, res, next){
 
 app.use("/", authRoutes);
 app.use("/campgrounds", campgroundRoutes);
-app.use("campgrounds/:id/comments", commentRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 var listener = app.listen(8888, function(){
     console.log('Listening on port ' + listener.address().port); //Listening on port 8888
